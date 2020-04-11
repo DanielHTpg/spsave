@@ -13,14 +13,14 @@ export class FoldersCreator {
   private createFolderRestUrlBase: string;
   private logger: ILogger;
 
-  constructor(private sprequest: ISPRequest, private folder: string, private siteUrl: string) {
+  constructor(private sprequest: ISPRequest, private folder: string, private siteUrl: string, logger?: ILogger) {
     this.folder = UrlHelper.trimSlashes(folder);
     this.siteUrl = UrlHelper.removeTrailingSlash(siteUrl);
 
     this.getFolderRestUrlBase = this.siteUrl + '/_api/web/GetFolderByServerRelativeUrl(@FolderName)';
     this.createFolderRestUrlBase = this.siteUrl + '/_api/web/folders';
 
-    this.logger = new ConsoleLogger();
+    this.logger =  logger || new ConsoleLogger();
   }
 
   public createFoldersHierarchy(): Promise<any> {

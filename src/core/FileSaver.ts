@@ -54,8 +54,8 @@ export class FileSaver {
     this.file.folder = UrlHelper.trimSlashes(this.file.folder);
     this.path = UrlHelper.removeTrailingSlash(url.parse(this.coreOptions.siteUrl).path);
 
-    this.foldersCreator = new FoldersCreator(this.sprequest, this.file.folder, this.coreOptions.siteUrl);
-    this.logger = new ConsoleLogger();
+    this.foldersCreator = new FoldersCreator(this.sprequest, this.file.folder, this.coreOptions.siteUrl, this.coreOptions.logger);
+    this.logger = coreOptions.logger || new ConsoleLogger();
 
     this.buildRestUrls();
   }

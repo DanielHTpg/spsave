@@ -15,8 +15,8 @@ export interface ICoreOptions {
   checkinType?: CheckinType;
   checkinMessage?: string;
   notification?: boolean;
-	filesMetaData?: IFileMetaData[];
-	logger?: ILogger;
+  filesMetaData?: IFileMetaData[];
+  logger?: ILogger;
 }
 
 export interface IFileMetaData {

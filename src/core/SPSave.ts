@@ -16,10 +16,14 @@ import {defer, IDeferred} from './../utils/Defer';
 
 Promise.longStackTraces();
 
-let logger: ILogger = new ConsoleLogger();
+let logger: ILogger;
 
 export function spsave(coreOptions: ICoreOptions, credentialOptions: IAuthOptions, fileOptions: FileOptions): Promise<any> {
   return new Promise<any>((resolve, reject) => {
+
+    if (!logger) {
+      logger = coreOptions.logger || new ConsoleLogger();
+    }
 
     let spSaveOptions: ISPSaveOptions = {
       creds: credentialOptions,
