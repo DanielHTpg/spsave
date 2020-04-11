@@ -1,5 +1,6 @@
 import File = require('vinyl');
 import {IAuthOptions} from 'sp-request';
+import {ILogger} from '../utils/ILogger';
 
 export enum CheckinType {
   minor = 0,
@@ -14,7 +15,8 @@ export interface ICoreOptions {
   checkinType?: CheckinType;
   checkinMessage?: string;
   notification?: boolean;
-  filesMetaData?: IFileMetaData[];
+	filesMetaData?: IFileMetaData[];
+	logger?: ILogger;
 }
 
 export interface IFileMetaData {
